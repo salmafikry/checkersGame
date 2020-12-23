@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User Requests</title>
+        <style>
+            divTable {   
+   border-collapse:collapse;
+   border:1px solid #000000;
+}
+        </style>
+    </h:head>
+    <h:body>
+        <center>
+        <h:dataTable value="#{userRequestsBean.getRequests()}" var="usrReq" style="border: black solid">
+            <h:column>
+                <f:facet name="header">Transaction ID</f:facet>
+                <center>  #{usrReq.transID} </center>
+            </h:column>
+             
+            <h:column>
+                <f:facet name="header">Amount To Send</f:facet>
+                <center>   #{usrReq.transAmount} </center>     
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Currency</f:facet>
+                <center>   #{usrReq.amountCurrency} </center>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Request From</f:facet>
+                <center>  #{usrReq.receiver}</center>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                <center> #{usrReq.transStatus}</center>
+            </h:column>
+        </h:dataTable>
+        <br/>
+        <br/>
+        <h:form>
+        *Request ID:<h:inputText id ="requestID" value="#{userRequestsBean.id}" title="Enter user name" required="true" requiredMessage="Please fill in all mandatory fields"/>
+       <br/>
+        <h:commandButton type="submit" value="Accept Request" action="#{userRequestsBean.acceptRequestID()}"></h:commandButton>
+        <h:commandButton type="submit" value="Decline Request" action="#{userRequestsBean.rejectRequestID()}"></h:commandButton>
+        <h:commandButton type="reset" value="Clear"/>
+        </h:form>
+         <br/>
+         <h:link value="Home Page" outcome="homePage"/>
+        </center>
+    </h:body>
+</html>
+

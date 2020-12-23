@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>View all Users</title>
+    </h:head>
+    <h:body>
+        <center>
+        <h:dataTable value="#{adminViewUsersBean.findUsers()}" var="users">
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                    #{users.email}
+            </h:column>
+             <h:column>
+                <f:facet name="header">First Name</f:facet>
+                    #{users.name}
+            </h:column>
+            <h:column>    				
+                <f:facet name="header">Last Name</f:facet>    				
+                    #{users.surname}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Date of Birth</f:facet>
+                    #{users.dob}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Username</f:facet>
+                    #{users.username}
+                     
+            </h:column>
+            <h:column>
+                <f:facet name="header">Balance</f:facet>
+                    #{users.balance}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Currency</f:facet>
+                    #{users.currency}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Phone Number</f:facet>
+                    #{users.phoneNum}
+            </h:column>
+        </h:dataTable>
+        <br/>
+             <h:link value="Home Page" outcome="adminHome"/>
+             </center>
+    </h:body>
+</html>
+
